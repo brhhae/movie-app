@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MoviesService } from "../../services/movies.service";
+import { Movie } from '../../movie.model';
 
 @Component({
   selector: 'app-movie-list',
@@ -6,10 +9,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit {
+  
+  movieList!: Movie[];
+  
+  constructor(private movieService : MoviesService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit(){
+    this.movieService.getMovieList().subscribe((res) => {
+      this.movieList = res.map((e) => {
+        return {
+          id: e.payload.doc.id,
+          ...(e.payload.doc.data() as Movie),
+        };
+      });
+    });
   }
+
+
 
 }

@@ -12,6 +12,14 @@ import { CarouselComponent } from './home/carousel/carousel.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { UserComponent } from './user/user.component';
 
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
+import { MoviesService } from "./services/movies.service";
+import {HttpClientModule} from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +34,14 @@ import { UserComponent } from './user/user.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    SlickCarouselModule
+    SlickCarouselModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, 
+    AngularFireAuthModule, 
+    AngularFireStorageModule,
+    HttpClientModule 
   ],
-  providers: [],
+  providers: [AngularFirestore, MoviesService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

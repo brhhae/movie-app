@@ -10,10 +10,10 @@ import { Component, OnInit } from '@angular/core';
 
 export class CarouselComponent implements OnInit {
   slides = [
-    { img: 'https://itswynnesworld.files.wordpress.com/2019/04/avengers-endgame.jpg?w=720' },
-    { img: '../../assets/images/mulan.jpg' },
+    { img: 'https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/27D2C8529FA57B6AE389BE2871E7A2821A3D98E6AB68A5D141930D486B6832FA/scale?width=1200&aspectRatio=1.78&format=jpeg' },
+    { img: 'https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/74837103CFC36C9E82C27589E8290F906B00A27A3AA5BB12906C009163C16978/scale?width=1200&aspectRatio=1.78&format=jpeg' },
     { img: '../../assets/images/minions.jpg' },
-    { img: 'https://whatsondisneyplus.com/wp-content/uploads/2019/10/EG163BfUwAgnZtw.jpg' },
+    { img: 'https://whatsondisneyplus.com/wp-content/uploads/2020/11/Toy-Story-Featured.png' },
     { img: 'https://thedisinsider.com/wp-content/uploads/2021/03/scale-5.jpeg' }
   ];
 
@@ -31,8 +31,8 @@ export class CarouselComponent implements OnInit {
     {
       breakpoint: 1024,
       settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: 1,
+        slidesToScroll: 1,
         infinite: true,
         dots: true
       }
@@ -40,8 +40,8 @@ export class CarouselComponent implements OnInit {
     {
       breakpoint: 600,
       settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
+        slidesToShow: 1,
+        slidesToScroll: 1
       }
     },
     {

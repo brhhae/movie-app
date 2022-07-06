@@ -1,0 +1,9 @@
+{
+  "database": {
+    "rules": "Mixed access"
+  },
+  "firestore": {
+    "rules": "Mixed access",
+    "indexes": "firestore.indexes.json"
+  }
+}

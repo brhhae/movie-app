@@ -4,13 +4,13 @@
     border-radius: 4px;
     box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px 10px,
     rgba(0 0 0 / 73%) 0px 16px 10px 10px;
-    height: 500px;
+    height: 510px;
     width: 100%;
 }
 
 .slick-wrapper img {
     width: 100%;
-    height: 490px;   
+    height: 500px;   
 }
 
 .slick-wrapper img &:hover {
