@@ -10,6 +10,7 @@ import { MovieListComponent } from './home/movie-list/movie-list.component';
 import { MovieItemComponent } from './home/movie-list/movie-item/movie-item.component';
 import { CarouselComponent } from './home/carousel/carousel.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
     HomeComponent,
     MovieListComponent,
     MovieItemComponent,
-    CarouselComponent
+    CarouselComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
