@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import { Movie } from 'src/app/movie.model';
+import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
   selector: 'app-movie-item',
@@ -9,12 +11,14 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class MovieItemComponent implements OnInit {
 
   movieId: string|null=null;
+  movieDetails!: Movie[];
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router,
+              private movieService : MoviesService) { }
 
 
   ngOnInit(){
-    this.movieId = this.route.snapshot.paramMap.get("id");
+    this.movieId = this.route.snapshot.paramMap.get("id");   
 
     if (!this.movieId){
     //  doesnt exist
@@ -22,5 +26,7 @@ export class MovieItemComponent implements OnInit {
       this.router.navigate(['home'])
     }
   }
+
+  
 
 }

@@ -22,6 +22,7 @@ import { MoviesService } from "./services/movies.service";
 import {HttpClientModule} from '@angular/common/http';
 
 import { RouterModule } from '@angular/router';
+import { NgScrollbarModule } from 'ngx-scrollbar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { RouterModule } from '@angular/router';
     AngularFirestoreModule, 
     AngularFireAuthModule, 
     AngularFireStorageModule,
-    HttpClientModule 
+    HttpClientModule,
+    NgScrollbarModule 
   ],
   providers: [AngularFirestore, MoviesService, HttpClientModule],
   bootstrap: [AppComponent]
