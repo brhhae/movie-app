@@ -1,30 +1,30 @@
 <div class="container">
     <div class="background">
-        
+        <img src="{{ movie.backgroundImg }}" alt="">
     </div>
     <div class="imagetitle">
-
+        <img src="{{movie.titleImg}}" alt="">
     </div>
     <div class="controls">
         <button class="playbutton">
-            <img src="" alt="">
+            <img src="../../../../assets/images/play-icon-black.png" alt="">
             <span></span>
         </button>
         <button class="trailerbutton">
-            <img src="" alt="">
-            <span></span>
+            <img src="../../../../assets/images/play-icon-white.png" alt="">
+            <span>TRAILER</span>
         </button>
         <button class="addbutton">
-            <span>+</span>
+            <i class="bi bi-plus text-white"></i>
         </button>
         <button class="groupwatchbutton">
-            <img src="" alt="">
+            <img src="../../../../assets/images/group-icon.png" alt="">
         </button>
     </div>
-    <div class="subtitle">
-        
+    <div class="subtitle"> 
+        {{ movie.description }}
     </div>
     <div class="description">
-
+        {{ movie.subtitle }}
     </div>
 </div>

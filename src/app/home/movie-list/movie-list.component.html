@@ -25,9 +25,15 @@
 
             <div class="moviect"
                  *ngFor="let movie of movieList; let i = index;">
-              <a routerLink="/details/{{movie.idField}}">
+              
+            <!----  > -->
                 <img [src]="movie.cardImg" alt="{{movie.title}}">
-              </a>
+                <div class="controls">
+                    <a class="btn text"><i class="bi bi-plus-lg"></i></a>
+                    <a class="btn text"><i class="bi bi-check2"></i></a>
+                    <a class="btn text" routerLink="/details/{{movie.idField}}"><i class="bi bi-three-dots"></i></a>
+                </div>
+            <!---  </a> -->
 
             </div>
 
