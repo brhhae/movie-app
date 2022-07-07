@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MoviesService } from "../../services/movies.service";
 import { Movie } from '../../movie.model';
+import { switchMap } from 'rxjs/internal/operators/switchMap';
 
 @Component({
   selector: 'app-movie-list',
@@ -19,12 +20,11 @@ export class MovieListComponent implements OnInit {
       this.movieList = res.map((e) => {
         return {
           id: e.payload.doc.id,
-          ...(e.payload.doc.data() as Movie),
-        };
+          ...(e.payload.doc.data() as Movie),         
+        };  
       });
     });
+    
   }
-
-
 
 }

@@ -20,6 +20,8 @@ import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/f
 
 import { MoviesService } from "./services/movies.service";
 import {HttpClientModule} from '@angular/common/http';
+
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
