@@ -1,8 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component,  OnDestroy, OnInit} from '@angular/core';
 import { MoviesService } from "../../services/movies.service";
 import { Movie } from '../../movie.model';
-import { switchMap } from 'rxjs/internal/operators/switchMap';
 import {Subscription} from "rxjs";
 
 @Component({
@@ -18,11 +16,11 @@ export class MovieListComponent implements OnInit, OnDestroy {
   constructor(private movieService : MoviesService) { }
 
   ngOnInit(){
+    this.movieService.getMovieList();
+
     this.subscription = this.movieService.moviesChanged.subscribe({
         next: (movies)=>{
-          if(movies)
-            this.movieList=movies
-          else this.movieService.getMovieList();
+          this.movieList=movies
         }
       }
     );

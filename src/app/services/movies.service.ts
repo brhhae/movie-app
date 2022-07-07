@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Movie } from '../movie.model';
-import {BehaviorSubject, Subject} from "rxjs";
+import { Subject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
-  moviesChanged = new BehaviorSubject<Movie[]|null>(null);
+
+  moviesChanged = new Subject<Movie[]>();
 
   constructor(private firestore: AngularFirestore) { }
 
@@ -23,14 +24,17 @@ export class MoviesService {
       .collection('movies')
       .snapshotChanges()
       .subscribe((res) => {
-        this.moviesChanged.next(
-          res.map(
-            (e) => {
-              return {
-                ...(e.payload.doc.data() as Movie),
-                idField: e.payload.doc.id,
-    }}))});
+        let movies = res.map(
+          (e) => {
+            return {
+              ...(e.payload.doc.data() as Movie),
+              idField: e.payload.doc.id,
+            }
+        });
+        this.moviesChanged.next(movies);
+      });
   }
+
 
 
 }
