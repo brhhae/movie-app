@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Movie} from "../../../movie.model";
 
 @Component({
   selector: 'app-movie-item',
@@ -9,6 +10,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class MovieItemComponent implements OnInit {
 
   movieId: string|null=null;
+  movie!: Movie;
 
   constructor(private route: ActivatedRoute, private router: Router) { }
 
@@ -21,6 +23,7 @@ export class MovieItemComponent implements OnInit {
     //  go home
       this.router.navigate(['home'])
     }
+
   }
 
 }
