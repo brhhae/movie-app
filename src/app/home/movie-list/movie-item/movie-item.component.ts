@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-movie-item',
@@ -8,10 +8,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MovieItemComponent implements OnInit {
 
-  constructor(private route : ActivatedRoute ) { }
+  movieId: string|null=null;
+
+  constructor(private route: ActivatedRoute, private router: Router) { }
+
 
   ngOnInit(){
+    this.movieId = this.route.snapshot.paramMap.get("id");
 
+    if (!this.movieId){
+    //  doesnt exist
+    //  go home
+      this.router.navigate(['home'])
+    }
   }
 
 }
