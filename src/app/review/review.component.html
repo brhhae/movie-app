@@ -1,0 +1,31 @@
+<div class="card mt-5 mb-3"
+     *ngFor="let review of reviews; let i = index"
+     [class.active]="i == currentIndex"
+     (click)="setActiveReview(review, i)">
+
+    <div class="card-header d-flex border-0 pt-4 ps-4">
+        <div class="tinypfp align-self-center">
+            <img src="../../assets/images/profilepic.png" alt="">
+        </div>
+        <div class="tinyinfo d-flex flex-column flex-fill">
+            <span class="ms-3">username</span>
+            <span class="rating ms-3">
+                  <i class="bi bi-heart-fill me-1"></i>
+                  <i class="bi bi-heart-fill me-1"></i>
+                  <i class="bi bi-heart-fill me-1"></i>
+                  <i class="bi bi-heart-fill me-1"></i>
+                  <i class="bi bi-heart-fill"></i>
+            </span>
+        </div>
+        <div class="options d-flex">
+            <span class="time align-self-center">2h</span>
+        </div>
+        
+    </div>
+    <div class="card-body ps-4">
+      <h5 class="card-title">{{ review.title }}</h5>
+      <p class="card-text">
+        {{ review.review }}
+      </p>
+    </div>
+</div>
