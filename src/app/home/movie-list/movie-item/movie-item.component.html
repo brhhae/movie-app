@@ -8,7 +8,7 @@
     <div class="controls">
         <button class="playbutton">
             <img src="../../../../assets/images/play-icon-black.png" alt="">
-            <span></span>
+            <span>PLAY</span>
         </button>
         <button class="trailerbutton">
             <img src="../../../../assets/images/play-icon-white.png" alt="">
@@ -20,6 +20,9 @@
         <button class="groupwatchbutton">
             <img src="../../../../assets/images/group-icon.png" alt="">
         </button>
+        <a class="reviewbtn" data-bs-toggle="modal" data-bs-target="#review">
+            <i class="bi bi-heart-fill"></i>
+        </a>
     </div>
     <div class="subtitle"> 
         {{ movie.description }}
@@ -27,4 +30,38 @@
     <div class="description">
         {{ movie.subtitle }}
     </div>
+
+    <div class="details">
+        <h5 class="dt">REVIEWS</h5>
+        <hr>
+        <app-add-review></app-add-review>
+        <div class="card mt-5 mb-3">
+            <div class="card-header d-flex border-0 pt-4 ps-4">
+                <div class="tinypfp align-self-center">
+                    <img src="../../assets/images/profilepic.png" alt="">
+                </div>
+                <div class="tinyinfo d-flex flex-column flex-fill">
+                    <span class="ms-3">username</span>
+                    <span class="rating ms-3">
+                          <i class="bi bi-heart-fill me-1"></i>
+                          <i class="bi bi-heart-fill me-1"></i>
+                          <i class="bi bi-heart-fill me-1"></i>
+                          <i class="bi bi-heart-fill me-1"></i>
+                          <i class="bi bi-heart-fill"></i>
+                    </span>
+                </div>
+                <div class="options d-flex">
+                    <span class="time align-self-center">2h</span>
+                </div>
+                
+            </div>
+            <div class="card-body ps-4">
+              <h5 class="card-title">This movie slayed fr</h5>
+              <p class="card-text">
+                Sit in window and stare oooh, a bird, yum. Cat cat moo moo lick ears lick paws cat ass trophy. Scamper chew foot, for chirp at birds roll over and sun my belly. Sweet beast i could pee on this if i had the energy munch, munch, chomp, chomp purr when being pet and sit on human i'm going to lap some water out of my master's cup meow. Make meme, make cute face. Catty ipsum meowing chowing and wowing and eat all the power cords or get scared by sudden appearance of cucumber.
+              </p>
+            </div>
+        </div>
+    </div>
+
 </div>

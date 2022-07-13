@@ -1,0 +1,36 @@
+.card {
+    border: 3px solid rgba(249, 249, 249, 0.1);
+    box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
+    rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+    background: rgb(4,5,20, .6);
+}
+
+.tinyinfo{
+    font-size: 25px;
+}
+
+.inpt {
+    background: transparent;
+    color: white;
+}
+
+.sb{
+    border-radius: 4px;
+    font-size: 15px;
+    padding: 0px 24px;
+    margin-right: 22px;
+    display: flex;
+    align-items: center;
+    height: 46px;
+    background: rgb(249, 249, 249);
+    border: none;
+    letter-spacing: 1.8px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgb(249, 249, 249);
+    color: rgb(249, 249, 249);
+}
+
+.sb:hover {
+    background: rgb(198, 198, 198);
+}

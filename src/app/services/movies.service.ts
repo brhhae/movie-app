@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Movie } from '../movie.model';
+import { Movie } from '../models/movie.model';
 import { Subject} from "rxjs";
 
 @Injectable({

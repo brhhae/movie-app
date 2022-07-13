@@ -22,7 +22,10 @@ import { MoviesService } from "./services/movies.service";
 import {HttpClientModule} from '@angular/common/http';
 
 import { RouterModule } from '@angular/router';
-import { NgScrollbarModule } from 'ngx-scrollbar';
+import { RatingComponent } from './rating/rating.component';
+import { ReviewComponent } from './review/review.component';
+import { AddReviewComponent } from './review/add-review/add-review.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,10 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     MovieListComponent,
     MovieItemComponent,
     CarouselComponent,
-    UserComponent
+    UserComponent,
+    RatingComponent,
+    ReviewComponent,
+    AddReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,7 @@ import { NgScrollbarModule } from 'ngx-scrollbar';
     AngularFireAuthModule, 
     AngularFireStorageModule,
     HttpClientModule,
-    NgScrollbarModule 
+    ReactiveFormsModule
   ],
   providers: [AngularFirestore, MoviesService, HttpClientModule],
   bootstrap: [AppComponent]
