@@ -31,11 +31,13 @@ export class ReviewComponent implements OnInit {
       this.reviews = data;
     });
   }
+
   refreshList(): void {
     this.currentReview = undefined;
     this.currentIndex = 0;
     this.retrieveReviews();
   }
+
   setActiveReview(review: Review, index: number): void {
     this.currentReview = review;
     this.currentIndex = index;

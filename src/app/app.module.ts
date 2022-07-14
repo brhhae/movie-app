@@ -23,9 +23,10 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { RouterModule } from '@angular/router';
 import { RatingComponent } from './rating/rating.component';
-import { ReviewComponent } from './review/review.component';
-import { AddReviewComponent } from './review/add-review/add-review.component';
+import { ReviewComponent } from './home/movie-list/movie-item/reviews/review/review.component';
+import { AddReviewComponent } from './home/movie-list/movie-item/reviews/review/add-review/add-review.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ReviewsComponent } from './home/movie-list/movie-item/reviews/reviews.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RatingComponent,
     ReviewComponent,
     AddReviewComponent,
+    ReviewsComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,8 +47,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     SlickCarouselModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule, 
-    AngularFireAuthModule, 
+    AngularFirestoreModule,
+    AngularFireAuthModule,
     AngularFireStorageModule,
     HttpClientModule,
     ReactiveFormsModule

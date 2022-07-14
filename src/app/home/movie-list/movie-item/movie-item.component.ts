@@ -30,18 +30,22 @@ export class MovieItemComponent implements OnInit {
       this.router.navigate(['home'])
     }
 
-    //get all movies
-    this.movieService.getMovieList();
-    this.subscription = this.movieService.moviesChanged.subscribe({
-        next: (movies)=>{
-          this.movie= movies.filter(movie => movie.idField == movieId)[0];
-          if (!this.movie){
-          //  in case the id was wrong
-          //  ....do something
+
+    else {
+      this.movieService.getOneMovie(movieId);
+      this.subscription = this.movieService.movieChanged.subscribe({
+          next: (movie:Movie)=>{
+            this.movie= movie;
+            if (!this.movie){
+              //  in case the id was wrong
+              //  ....do something
+            }
           }
         }
-      }
-    );
+      );
+    }
+
+
   }
 
   ngOnDestroy(): void {
