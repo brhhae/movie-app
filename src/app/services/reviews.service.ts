@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Review } from '../models/review.model';
+import firebase from "firebase/compat";
+import Query = firebase.firestore.Query;
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +17,8 @@ export class ReviewsService {
   getAll(): AngularFirestoreCollection<Review> {
     return this.commentsRef;
   }
-  getAllForMovie(id:string){
+
+  getAllForMovie(id: string){
     return this.db.collection('/comments').ref.where('movieId', '==', id);
   }
   create(review: Review): any {

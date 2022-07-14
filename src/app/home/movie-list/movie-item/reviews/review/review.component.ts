@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Review } from 'src/app/models/review.model';
 import { ReviewsService } from 'src/app/services/reviews.service';
 import { map } from 'rxjs';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-review',
@@ -9,27 +10,26 @@ import { map } from 'rxjs';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
-  reviews?: Review[];
+  reviews: Review[]=[];
   currentReview?: Review;
   currentIndex= 0;
   title = '';
 
-  constructor(private reviewsService: ReviewsService) { }
+  constructor(private reviewsService: ReviewsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.retrieveReviews();
   }
 
   retrieveReviews(): void {
-    this.reviewsService.getAll().snapshotChanges().pipe(
-      map(changes =>
-        changes.map(c =>
-          ({ id: c.payload.doc.id, ...c.payload.doc.data() })
-        )
-      )
-    ).subscribe(data => {
-      this.reviews = data;
+    this.reviewsService.getAllForMovie(<string>this.getMovieId()).get().then(
+      (querySnapshot) => {
+        querySnapshot.forEach(data => {
+        // @ts-ignore
+          this.reviews.push(data.data());
+      });
     });
+
   }
 
   refreshList(): void {
@@ -41,5 +41,9 @@ export class ReviewComponent implements OnInit {
   setActiveReview(review: Review, index: number): void {
     this.currentReview = review;
     this.currentIndex = index;
+  }
+
+  private getMovieId() {
+    return this.route.snapshot.paramMap.get("id");
   }
 }
