@@ -14,6 +14,9 @@ export class ReviewsService {
   getAll(): AngularFirestoreCollection<Review> {
     return this.commentsRef;
   }
+  getAllForMovie(id:string){
+    return this.db.collection('/comments').ref.where('movieId', '==', id);
+  }
   create(review: Review): any {
     return this.commentsRef.add({ ...review });
   }
