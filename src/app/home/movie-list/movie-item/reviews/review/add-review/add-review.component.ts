@@ -20,7 +20,7 @@ export class AddReviewComponent implements OnInit {
   }
 
   saveReview(): void {
-    this.review.movieId= this.getMovieId();
+    this.review.movieId= this.getMovieId() as string;
     this.reviewsService.create(this.review).then(() => {
       console.log('Created new review successfully!');
       this.submitted = true;

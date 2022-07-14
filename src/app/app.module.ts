@@ -27,6 +27,8 @@ import { ReviewComponent } from './home/movie-list/movie-item/reviews/review/rev
 import { AddReviewComponent } from './home/movie-list/movie-item/reviews/review/add-review/add-review.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ReviewsComponent } from './home/movie-list/movie-item/reviews/reviews.component';
+import { WatchlistComponent } from './user/watchlist/watchlist.component';
+import { WatchedlistComponent } from './user/watchedlist/watchedlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +42,8 @@ import { ReviewsComponent } from './home/movie-list/movie-item/reviews/reviews.c
     ReviewComponent,
     AddReviewComponent,
     ReviewsComponent,
+    WatchlistComponent,
+    WatchedlistComponent,
   ],
   imports: [
     BrowserModule,
