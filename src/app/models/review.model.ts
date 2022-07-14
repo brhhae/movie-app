@@ -5,7 +5,7 @@ export class Review {
     title!: string;
     review!: string;
     userId!: string;
-    movieId!: string;
+    movieId!: string | null;
     rating!: number;
     dateUpdate!: Date;
     published?: boolean;
