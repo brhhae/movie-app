@@ -22,14 +22,6 @@
     object-fit: cover; 
 }
 
-.moviect:hover{
-    transform: scale(1.05);
-    box-shadow: rgb(0 0 0 / 89%) 0px 40px 58px -16px,
-    rgb(0 0 0 / 72%) 0px 30px 22px -10px;
-    border-color: rgba(249, 249, 249, 0.8);
-    
-}
-
 hr {
     height: 2px;
   }
@@ -44,3 +36,39 @@ hr {
 .dt:hover{
     opacity: 1;
   }
+
+  .controls{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0;
+}
+
+.controls a{
+    color: white;
+    font-size: 30px;
+}
+
+.moviect:hover{
+    transform: scale(1.05);
+    box-shadow: rgb(0 0 0 / 89%) 0px 40px 58px -16px,
+    rgb(0 0 0 / 72%) 0px 30px 22px -10px;
+    border-color: rgba(249, 249, 249, 0.8);
+    
+}
+
+.moviect:hover img{
+    opacity:0.3;
+}
+
+.moviect:hover .controls{  
+    opacity: 1;
+}
+
+.controls a:hover {
+    transition: 0.9s;
+    transform: rotate(360deg);
+    color: #a5a5a8;
+}
