@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { map } from 'rxjs';
 import { Watchlist } from '../models/watchlist.model';
 
 @Injectable({
@@ -14,10 +15,13 @@ export class WatchlistsService {
     this.watchlistRef = db.collection(this.dbPath);
   }
 
-  getWatchlist(id: string){
-    return this.db.collection('/watchlists').ref.where('movieId', '==', id);
+  getAllWatchlists() {
   }
-  addToWatchlist(watchlist: Watchlist): any {
+
+  getWatchlistMovie(){
+  }
+
+  addToWatchList(watchlist: Watchlist): any {
     return this.watchlistRef.add({ ...watchlist });
   }
   removeFromWatchlist(id: string): Promise<void> {

@@ -7,7 +7,7 @@ import { Watchedlist } from '../models/watchedlist.model';
 })
 export class WatchedlistsService {
 
-  private dbPath = '/watchlists';
+  private dbPath = '/watchedlists';
   watchedlistRef!: AngularFirestoreCollection<Watchedlist>;
 
   constructor(private db: AngularFirestore) {
@@ -17,10 +17,14 @@ export class WatchedlistsService {
   getWatchedlist(id: string){
     return this.db.collection('/watchedlists').ref.where('movieId', '==', id);
   }
-  addToWatchedlist(watchedlist: Watchedlist): any {
+  addToWatchedList(watchedlist: Watchedlist): any {
     return this.watchedlistRef.add({ ...watchedlist });
   }
   removeFromWatchedlist(id: string): Promise<void> {
     return this.watchedlistRef.doc(id).delete();
   }
+
+  /*addToWatchedList(movieId:string, userId:string) {
+    this.db.collection('watchedlists').doc().set({movieId: movieId, userId:1});
+  }*/
 }

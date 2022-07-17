@@ -5,6 +5,10 @@ import {Subscription} from "rxjs";
 import { WatchedlistsService } from 'src/app/services/watchedlists.service';
 import { WatchlistsService } from 'src/app/services/watchlists.service';
 import { ActivatedRoute } from '@angular/router';
+import { Watchedlist } from 'src/app/models/watchedlist.model';
+import { Review } from 'src/app/models/review.model';
+import { ReviewComponent } from './movie-item/reviews/review/review.component';
+import { Watchlist } from 'src/app/models/watchlist.model';
 
 @Component({
   selector: 'app-movie-list',
@@ -12,6 +16,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit, OnDestroy {
+  
+  watched: Watchedlist = new Watchedlist();
+  watch: Watchlist = new Watchlist();
+
+  isAddedToWatched!: boolean;
+  isAddedToWatch!: boolean;
 
   movieList!: Movie[];
   subscription !: Subscription;
@@ -37,8 +47,20 @@ export class MovieListComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
   }
 
-  private getMovieId() {
-    return this.route.snapshot.paramMap.get("id");
+  addToWatched(movieId: String){
+    this.watched.movieId= movieId;
+    this.watchedlistService.addToWatchedList(this.watched).then(() => {
+      console.log('Added to watched list successfully!');
+    });
+    this.isAddedToWatched= true;
   }
 
+  addToWatch(movieId: String){
+    this.watch.movieId= movieId;
+    this.watchlistService.addToWatchList(this.watch).then(() => {
+      console.log('Added to watch list successfully!');
+    });
+    this.isAddedToWatch= true;
+  }
+  
 }
