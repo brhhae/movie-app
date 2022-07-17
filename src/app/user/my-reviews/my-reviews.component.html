@@ -1,6 +1,30 @@
 <h5 class="dt ms-4 mt-2">RECENT REVIEWS</h5>
 <hr class="ms-4">
 
+<div class="card ms-4 mt-5" *ngFor="let review of reviewList; let i = index;">
+  <div class="card-header d-flex border-0 pt-4 ps-4">
+      <div class="tinypfp">
+          <img src="../../assets/images/profilepic.png" alt="">
+      </div>
+      <div class="tinyinfo d-flex flex-fill">
+          <span class="align-self-center ms-3">username</span>
+      </div>
+      <div class="options d-flex">
+          <a href="" class="align-self-center"><i class="bi bi-three-dots"></i></a>
+      </div>
+      
+  </div>
+  <div class="card-body ps-4">
+    <h5 class="card-title">{{review.title}}</h5>
+    <p class="card-text">
+      {{review.review}}
+    </p>
+  </div>
+  <div class="card-footer text-muted ps-4">
+    2 days ago
+  </div>
+</div>
+
 <div class="card ms-4 mt-5">
     <div class="card-header d-flex border-0 pt-4 ps-4">
         <div class="tinypfp">

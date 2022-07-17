@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subject, Subscription } from 'rxjs';
+import { Review } from 'src/app/models/review.model';
+import { ReviewsService } from 'src/app/services/reviews.service';
 
 @Component({
   selector: 'app-my-reviews',
@@ -6,10 +10,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-reviews.component.css']
 })
 export class MyReviewsComponent implements OnInit {
-
-  constructor() { }
+  
+  reviewList!: Review[];
+  subscription !: Subscription;
+  
+  constructor(private reviewsService: ReviewsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.getReviews();
   }
+
+  async getReviews() {
+    this.reviewList = await this.reviewsService.getAllReviews();
+   }
 
 }

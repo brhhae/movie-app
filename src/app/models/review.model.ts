@@ -8,5 +8,5 @@ export class Review {
     movieId!: string | null;
     rating!: number;
     dateUpdate!: Date;
-    published?: boolean;
+    published!: boolean;
 }
