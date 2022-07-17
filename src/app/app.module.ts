@@ -29,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ReviewsComponent } from './home/movie-list/movie-item/reviews/reviews.component';
 import { WatchlistComponent } from './user/watchlist/watchlist.component';
 import { WatchedlistComponent } from './user/watchedlist/watchedlist.component';
+import { MyReviewsComponent } from './user/my-reviews/my-reviews.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { WatchedlistComponent } from './user/watchedlist/watchedlist.component';
     ReviewsComponent,
     WatchlistComponent,
     WatchedlistComponent,
+    MyReviewsComponent,
   ],
   imports: [
     BrowserModule,

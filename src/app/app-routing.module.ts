@@ -5,6 +5,7 @@ import { UserComponent } from './user/user.component';
 import { MovieItemComponent } from './home/movie-list/movie-item/movie-item.component';
 import { WatchlistComponent } from './user/watchlist/watchlist.component';
 import { WatchedlistComponent } from './user/watchedlist/watchedlist.component';
+import { MyReviewsComponent } from './user/my-reviews/my-reviews.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -12,8 +13,10 @@ const routes: Routes = [
     { path: 'details', component: MovieItemComponent },
     { path: 'details/:id', component: MovieItemComponent },
     { path: 'user', component: UserComponent, children: [
+      {path: '', component: MyReviewsComponent},
       {path: 'watchlist', component: WatchlistComponent},
-      {path: 'watchedlist', component: WatchedlistComponent}
+      {path: 'watchedlist', component: WatchedlistComponent},
+      {path: 'my-reviews', component: MyReviewsComponent}
     ]}
     
 
