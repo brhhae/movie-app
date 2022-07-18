@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { map, Subject } from 'rxjs';
 import { Movie } from '../models/movie.model';
 import { Watchlist } from '../models/watchlist.model';
+import { collection, query, where, getDocs, deleteDoc } from "firebase/firestore";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,8 @@ export class WatchlistsService {
   watchlistRef!: AngularFirestoreCollection<Watchlist>;
   
   watchlistsChanged = new Subject<Movie[]>();
+
+  idToDelete!: string;
 
   constructor(private db: AngularFirestore) {
     this.watchlistRef = db.collection(this.dbPath);
@@ -48,7 +51,7 @@ export class WatchlistsService {
 
   moviesWithDetails:Movie[]=[]
   getAllForWatchlist(id: string){
-
+    this.moviesWithDetails = [];
     this.db.collection('movies').doc(id).get().subscribe(
       (movie)=>{
         this.moviesWithDetails.push( movie.data() as Movie);
@@ -62,8 +65,10 @@ export class WatchlistsService {
   addToWatchList(watchlist: Watchlist): any {
     return this.watchlistRef.add({ ...watchlist });
   }
-  removeFromWatchlist(id: string): Promise<void> {
-    return this.watchlistRef.doc(id).delete();
+  removeFromWatchlist(id: string){
+    
   }
+
+
 }
 

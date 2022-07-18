@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Subject } from 'rxjs';
+import { Movie } from '../models/movie.model';
 import { Watchedlist } from '../models/watchedlist.model';
 
 @Injectable({
@@ -9,9 +11,45 @@ export class WatchedlistsService {
 
   private dbPath = '/watchedlists';
   watchedlistRef!: AngularFirestoreCollection<Watchedlist>;
+  watchedlistsChanged = new Subject<Movie[]>();
 
   constructor(private db: AngularFirestore) {
     this.watchedlistRef = db.collection(this.dbPath);
+  }
+
+  getAllWatchedlists() {
+    this.db
+    .collection(this.dbPath)
+    .snapshotChanges()
+    .subscribe((res) => {
+      // watch list movies 
+      let movies = res.map(
+        (e) => {
+          
+          return {
+            ...(e.payload.doc.data() as Watchedlist)
+          }
+      });
+
+      // get details for each  
+      movies.forEach(movie => {
+        this.getAllForWatchedlist(movie.movieId);
+        
+      });
+      
+    });
+
+  }
+
+  moviesWithDetails:Movie[]=[]
+  getAllForWatchedlist(id: string){
+    this.moviesWithDetails = [];
+    this.db.collection('movies').doc(id).get().subscribe(
+      (movie)=>{
+        this.moviesWithDetails.push( movie.data() as Movie);
+        this.watchedlistsChanged.next(this.moviesWithDetails);
+      }
+    );
   }
 
   getWatchedlist(id: string){
@@ -24,7 +62,5 @@ export class WatchedlistsService {
     return this.watchedlistRef.doc(id).delete();
   }
 
-  /*addToWatchedList(movieId:string, userId:string) {
-    this.db.collection('watchedlists').doc().set({movieId: movieId, userId:1});
-  }*/
+  
 }

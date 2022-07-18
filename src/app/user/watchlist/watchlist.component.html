@@ -1,11 +1,17 @@
 <h5 class="dt ms-4 mt-2">WATCHLIST</h5>
 <hr class="ms-4">
 <div class="content ms-4 mt-5">
-    <div class="moviect">
-        <img >
-        <div class="controls">
-            <a class="btn text"><i class="bi bi-x-lg"></i></a>
+    <div class="ct" *ngFor="let movie of watchlistMovie; let i = index;">
+        <div class="moviect">
+            <img [src]="movie.cardImg" alt="{{movie.title}}">
+            <div class="controls">
+                <a class="btn text" (click)="removeFromWatchlist(movie.idField)"><i class="bi bi-x-lg"></i></a>
+            </div>
+        </div>
+        <div class="name">
+            <span>{{movie.title}}</span>
         </div>
     </div>
+    
 </div>
 

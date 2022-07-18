@@ -1,11 +1,16 @@
 <h5 class="dt ms-4">WATCHEDLIST</h5>
 <hr class="ms-4">
 <div class="content ms-4 mt-5">
-    <div class="moviect">
-        <img src="https://prod-ripcut-delivery.disney-plus.net/v1/variant/disney/414658B469A80316E79F4D7A98B0257A5430033D16350EAAA7C7E7686244EAE1/scale?width=800&aspectRatio=1.78&format=jpeg">
-        <div class="controls">
-            <a class="btn text"><i class="bi bi-x-lg"></i></a>
+        <div class="ct" *ngFor="let movie of watchedlistMovie; let i = index;">
+            <div class="moviect">
+                <img [src]="movie.cardImg" alt="{{movie.title}}">
+                <div class="controls">
+                    <a class="btn text"><i class="bi bi-x-lg"></i></a>
+                </div>
+            </div>
+            <div class="name">
+                <span>{{movie.title}}</span>
+            </div>
         </div>
-    </div>
 </div>
 

@@ -28,6 +28,8 @@ export class WatchlistComponent implements OnInit {
     })
   }
 
-
+  removeFromWatchlist(id: string){
+    this.watchlistService.removeFromWatchlist(id);
+  }
 
 }

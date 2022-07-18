@@ -4,6 +4,13 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.ct{
+    border-radius: 10px;
+    position: relative;
+    display: block;
+    
+}
+
 .moviect{
     border-radius: 10px;
     cursor: pointer;
@@ -36,7 +43,6 @@ hr {
 .dt:hover{
     opacity: 1;
   }
-
 
   .controls{
     position: absolute;
