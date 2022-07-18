@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { subscribeOn, Subscription } from 'rxjs';
 import { Movie } from 'src/app/models/movie.model';
+import { Watchlist } from 'src/app/models/watchlist.model';
 import { WatchlistsService } from 'src/app/services/watchlists.service';
 
 @Component({
@@ -9,16 +11,16 @@ import { WatchlistsService } from 'src/app/services/watchlists.service';
 })
 export class WatchlistComponent implements OnInit {
 
-  watchlist: Movie[]=[];
+  watchlist: Watchlist[]=[];
+  watchlistMovie: Movie[]=[];
+
 
   constructor(private watchlistService: WatchlistsService,) { }
 
   ngOnInit(): void {
-    this.retrieveWatchlist();
+    
   }
 
-  retrieveWatchlist(){
-    this.watchlistService.getWatchlistMovie();
-  }
+
 
 }
