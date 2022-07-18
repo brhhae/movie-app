@@ -43,7 +43,6 @@ export class MoviesService {
       (movie)=>{
         // @ts-ignore
         this.movieChanged.next(movie.data())
-
       }
     );
   }

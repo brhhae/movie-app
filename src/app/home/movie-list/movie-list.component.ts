@@ -47,7 +47,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
   }
 
-  addToWatched(movieId: String){
+  addToWatched(movieId: string){
     this.watched.movieId= movieId;
     this.watchedlistService.addToWatchedList(this.watched).then(() => {
       console.log('Added to watched list successfully!');
@@ -55,7 +55,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
     this.isAddedToWatched= true;
   }
 
-  addToWatch(movieId: String){
+  addToWatch(movieId: string){
     this.watch.movieId= movieId;
     this.watchlistService.addToWatchList(this.watch).then(() => {
       console.log('Added to watch list successfully!');

@@ -18,7 +18,14 @@ export class WatchlistComponent implements OnInit {
   constructor(private watchlistService: WatchlistsService,) { }
 
   ngOnInit(): void {
-    
+    this.watchlistService.getAllWatchlists();
+    this.watchlistService.watchlistsChanged.subscribe({
+      next: (movies)=>{
+        this.watchlistMovie=movies
+        console.log(movies);
+        
+      },
+    })
   }
 
 
