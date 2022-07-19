@@ -30,7 +30,6 @@ import { ReviewsComponent } from './home/movie-list/movie-item/reviews/reviews.c
 import { WatchlistComponent } from './user/watchlist/watchlist.component';
 import { WatchedlistComponent } from './user/watchedlist/watchedlist.component';
 import { MyReviewsComponent } from './user/my-reviews/my-reviews.component';
-import { EditReviewComponent } from './user/my-reviews/edit-review/edit-review.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
@@ -48,8 +47,7 @@ import {MatMenuModule} from '@angular/material/menu';
     ReviewsComponent,
     WatchlistComponent,
     WatchedlistComponent,
-    MyReviewsComponent,
-    EditReviewComponent,
+    MyReviewsComponent
   ],
   imports: [
     BrowserModule,

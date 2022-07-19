@@ -14,7 +14,8 @@ export class MyReviewsComponent implements OnInit {
   
   reviewList!: Review[];
   subscription !: Subscription;
-  
+  reviewId!: string;
+
   constructor(private reviewsService: ReviewsService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -24,5 +25,15 @@ export class MyReviewsComponent implements OnInit {
   async getReviews() {
     this.reviewList = await this.reviewsService.getAllReviews();
    }
+
+   editReview(id: string){
+
+   }
+
+   deleteReview(id: string){
+    this.reviewId= id;
+    this.reviewsService.delete(this.reviewId);
+   }
+
 
 }
