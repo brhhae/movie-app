@@ -30,6 +30,9 @@ import { ReviewsComponent } from './home/movie-list/movie-item/reviews/reviews.c
 import { WatchlistComponent } from './user/watchlist/watchlist.component';
 import { WatchedlistComponent } from './user/watchedlist/watchedlist.component';
 import { MyReviewsComponent } from './user/my-reviews/my-reviews.component';
+import { EditReviewComponent } from './user/my-reviews/edit-review/edit-review.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +49,7 @@ import { MyReviewsComponent } from './user/my-reviews/my-reviews.component';
     WatchlistComponent,
     WatchedlistComponent,
     MyReviewsComponent,
+    EditReviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,9 @@ import { MyReviewsComponent } from './user/my-reviews/my-reviews.component';
     AngularFireAuthModule,
     AngularFireStorageModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatMenuModule
   ],
   providers: [AngularFirestore, MoviesService, HttpClientModule],
   bootstrap: [AppComponent]

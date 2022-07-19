@@ -43,7 +43,7 @@ hr {
     font-size: 20px;
 }
 
-.options a{
+.options button{
     text-decoration: none;
     color: white;
     width: 30px;
@@ -52,9 +52,11 @@ hr {
     border-radius: 50%;
     padding-left: 6px;
     padding-top: 3px;
+    background-color: transparent;
+    border-color: transparent;
 }
 
-.options a:hover{
+.options button:hover{
     background-color: #292a36;
     color: rgba(249, 249, 249, 0.8);
     transition: 0.9s;
