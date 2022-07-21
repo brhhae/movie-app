@@ -43,7 +43,7 @@ hr {
     font-size: 20px;
 }
 
-.options button{
+.options #dropdownMenuButton1{
     text-decoration: none;
     color: white;
     width: 30px;
@@ -52,15 +52,44 @@ hr {
     border-radius: 50%;
     padding-left: 6px;
     padding-top: 3px;
-    background-color: transparent;
+    background-color: #040514;
     border-color: transparent;
 }
 
-.options button:hover{
+.options #dropdownMenuButton1:hover{
     background-color: #292a36;
     color: rgba(249, 249, 249, 0.8);
     transition: 0.9s;
     transform: rotate(360deg);
-    
+}
+
+.options #dropdownMenuButton1:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+.dropdown-menu{
+    background-color: #040514;
+    color: white;
+    border-color: rgba(249, 249, 249, 0.1);
+    box-shadow: rgb(0 0 0 / 69%) 0px 26px 30px -10px,
+    rgb(0 0 0 / 73%) 0px 16px 10px -10px;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: -38px !important;
+    margin-left: -122px !important;
+}
+
+.dropdown-item{
+    padding: 10px;
+}
+
+.dropdown-item:hover{
+    background-color: #292a36;
+    color: white;
+}
+
+.i-color{
+    color: rgba(249, 249, 249, 0.5);
 }
 
