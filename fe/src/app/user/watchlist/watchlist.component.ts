@@ -28,7 +28,7 @@ export class WatchlistComponent implements OnInit {
     })
   }
 
-  removeFromWatchlist(id: string){
+  removeFromWatchlist(id: number){
     this.watchlistService.removeFromWatchlist(id);
   }
 

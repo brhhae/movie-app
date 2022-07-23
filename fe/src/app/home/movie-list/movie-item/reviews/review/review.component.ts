@@ -17,25 +17,24 @@ export class ReviewComponent implements OnInit {
 
   constructor(private reviewsService: ReviewsService, private route: ActivatedRoute) { }
 
+
   ngOnInit(): void {
     this.retrieveReviews();
   }
 
   retrieveReviews(): void {
-    this.reviewsService.getAllForMovie(<string>this.getMovieId()).get().then(
-      (querySnapshot) => {
-        querySnapshot.forEach(data => {
-        // @ts-ignore
-          this.reviews.push(data.data());
-      });
-    });
-
+    this.reviewsService.getAllReviews();
+    this.reviewsService.reviewsChanged.subscribe(
+      (reviews)=>{
+        this.reviews=reviews;
+      }
+    );
+    
   }
 
   refreshList(): void {
     this.currentReview = undefined;
     this.currentIndex = 0;
-    this.retrieveReviews();
   }
 
   setActiveReview(review: Review, index: number): void {

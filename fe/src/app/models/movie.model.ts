@@ -1,10 +1,9 @@
 export class Movie {
-    idField!: string;
-    backgroundImg!: string;
-    cardImg!: string;
-    description!: string;
-    subtitle!: string;
+    id!: number;
     title!: string;
-    titleImg!: string;
-    type!: string;
+    subtitle!: string;
+    description!: string;
+    titleImage!: string;
+    cardImage!: string;
+    backgroundImage!: string;
 }

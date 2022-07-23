@@ -3,9 +3,9 @@
 <div class="content ms-4 mt-5">
     <div class="ct" *ngFor="let movie of watchlistMovie; let i = index;">
         <div class="moviect">
-            <img [src]="movie.cardImg" alt="{{movie.title}}">
+            <img [src]="movie.cardImage">
             <div class="controls">
-                <a class="btn text" (click)="removeFromWatchlist(movie.idField)"><i class="bi bi-x-lg"></i></a>
+                <a class="btn text" (click)="removeFromWatchlist(movie.id)"><i class="bi bi-x-lg"></i></a>
             </div>
         </div>
         <div class="name">

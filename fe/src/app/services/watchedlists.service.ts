@@ -22,34 +22,28 @@ export class WatchedlistsService {
     .collection(this.dbPath)
     .snapshotChanges()
     .subscribe((res) => {
-      // watch list movies 
+      // watch list movies
       let movies = res.map(
         (e) => {
-          
+
           return {
             ...(e.payload.doc.data() as Watchedlist)
           }
       });
 
-      // get details for each  
+      // get details for each
       movies.forEach(movie => {
         this.getAllForWatchedlist(movie.movieId);
-        
+
       });
-      
+
     });
 
   }
 
   moviesWithDetails:Movie[]=[]
-  getAllForWatchedlist(id: string){
-    this.moviesWithDetails = [];
-    this.db.collection('movies').doc(id).get().subscribe(
-      (movie)=>{
-        this.moviesWithDetails.push( movie.data() as Movie);
-        this.watchedlistsChanged.next(this.moviesWithDetails);
-      }
-    );
+  getAllForWatchedlist(id: number){
+
   }
 
   getWatchedlist(id: string){
@@ -62,5 +56,5 @@ export class WatchedlistsService {
     return this.watchedlistRef.doc(id).delete();
   }
 
-  
+
 }

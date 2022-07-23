@@ -15,4 +15,5 @@ import javax.persistence.Id;
 public class Users {
   @Id
   private Long id;
+
 }

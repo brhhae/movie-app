@@ -1,9 +1,9 @@
 <div class="container">
     <div class="background">
-        <img src="{{ movie.backgroundImg }}" alt="">
+        <img src="{{ movie.backgroundImage }}" alt="">
     </div>
     <div class="imagetitle">
-        <img src="{{movie.titleImg}}" alt="">
+        <img src="{{movie.titleImage}}" alt="">
     </div>
     <div class="controls">
         <button class="playbutton">
@@ -31,6 +31,6 @@
         {{ movie.subtitle }}
     </div>
 
-   <app-reviews></app-reviews>
+   <app-reviews [movieid]="movie.id"></app-reviews>
 
 </div>

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Movie } from '../models/movie.model';
 import { Subject} from "rxjs";
-import firebase from "firebase/compat";
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -11,40 +10,28 @@ export class MoviesService {
 
   moviesChanged = new Subject<Movie[]>();
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor(private http: HttpClient) { }
 
-  // getMovieDoc(idField: string) {
-  //   return this.firestore
-  //     .collection('movies')
-  //     .doc(idField)
-  //     .valueChanges();
-  // }
+  private baseurl="http://localhost:8080/"
 
   getMovieList() {
-    this.firestore
-      .collection('movies')
-      .snapshotChanges()
-      .subscribe((res) => {
-        let movies = res.map(
-          (e) => {
-            return {
-              ...(e.payload.doc.data() as Movie),
-              idField: e.payload.doc.id,
-            }
-        });
-        this.moviesChanged.next(movies);
-      });
+
+    this.http.get<Movie[]>(this.baseurl+"movies").subscribe(
+      (value)=>{
+        this.moviesChanged.next(value)
+
+      }
+    )
   }
 
   movieChanged = new Subject<Movie>();
 
   getOneMovie(id: string){
-    this.firestore.collection('movies').doc(id).get().subscribe(
-      (movie)=>{
-        // @ts-ignore
-        this.movieChanged.next(movie.data())
+    this.http.get<Movie>(this.baseurl+"movie/"+id).subscribe(
+      (value)=>{
+        this.movieChanged.next(value)
       }
-    );
+    )
   }
 
 

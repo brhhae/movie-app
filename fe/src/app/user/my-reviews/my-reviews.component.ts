@@ -11,29 +11,29 @@ import { ReviewsService } from 'src/app/services/reviews.service';
   styleUrls: ['./my-reviews.component.css']
 })
 export class MyReviewsComponent implements OnInit {
-  
+
   reviewList!: Review[];
   subscription !: Subscription;
   reviewId!: string;
 
-  constructor(private reviewsService: ReviewsService, private route: ActivatedRoute) { }
-
-  ngOnInit(): void {
-    this.getReviews();
+  constructor(private reviewsService: ReviewsService) {
   }
 
-  async getReviews() {
-    this.reviewList = await this.reviewsService.getAllReviews();
-   }
+  ngOnInit(): void {
+    this.reviewsService.getAllReviews();
+    this.reviewsService.reviewsChanged.subscribe(
+      (reviews) => {
+        this.reviewList=reviews;
+      }
+    )
+  }
 
-   editReview(id: string){
+  editReview(id: number) {
+    
+  }
 
-   }
-
-   deleteReview(id: string){
-    this.reviewId= id;
-    this.reviewsService.delete(this.reviewId);
-   }
-
-
+  deleteReview(id: number) {
+    
+  }
 }
+

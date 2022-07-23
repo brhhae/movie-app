@@ -1,12 +1,17 @@
-import { Timestamp } from "firebase/firestore";
+import { Movie } from "./movie.model";
 
 export class Review {
-    idField!: string;
+
+
+    id!: number;
     title!: string;
     review!: string;
-    userId!: string;
-    movieId!: string;
+    // user!: User;
+    movie!: Movie;
+
     rating!: number;
     dateUpdate!: Date;
     published!: boolean;
+    
+    
 }

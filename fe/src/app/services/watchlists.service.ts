@@ -12,7 +12,7 @@ export class WatchlistsService {
 
   private dbPath = '/watchlists';
   watchlistRef!: AngularFirestoreCollection<Watchlist>;
-  
+
   watchlistsChanged = new Subject<Movie[]>();
 
   idToDelete!: string;
@@ -22,26 +22,7 @@ export class WatchlistsService {
   }
 
   getAllWatchlists() {
-    this.db
-    .collection(this.dbPath)
-    .snapshotChanges()
-    .subscribe((res) => {
-      // watch list movies 
-      let movies = res.map(
-        (e) => {
-          
-          return {
-            ...(e.payload.doc.data() as Watchlist)
-          }
-      });
 
-      // get details for each  
-      movies.forEach(movie => {
-        this.getAllForWatchlist(movie.movieId);
-        
-      });
-      
-    });
 
   }
 
@@ -50,23 +31,17 @@ export class WatchlistsService {
   }
 
   moviesWithDetails:Movie[]=[]
-  getAllForWatchlist(id: string){
-    this.moviesWithDetails = [];
-    this.db.collection('movies').doc(id).get().subscribe(
-      (movie)=>{
-        this.moviesWithDetails.push( movie.data() as Movie);
-        this.watchlistsChanged.next(this.moviesWithDetails);
-      }
-    );
-   
+  getAllForWatchlist(id: number){
+
+
 
   }
 
   addToWatchList(watchlist: Watchlist): any {
     return this.watchlistRef.add({ ...watchlist });
   }
-  removeFromWatchlist(id: string){
-    
+  removeFromWatchlist(id: number){
+
   }
 
 

@@ -1,4 +1,4 @@
 export class Watchlist{
-    movieId!: string;
+    movieId!: number;
     userId!: string;
 }

@@ -16,7 +16,7 @@ import { Watchlist } from 'src/app/models/watchlist.model';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent implements OnInit, OnDestroy {
-  
+
   watched: Watchedlist = new Watchedlist();
   watch: Watchlist = new Watchlist();
 
@@ -33,7 +33,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
 
   ngOnInit(){
     this.movieService.getMovieList();
-    
+
     this.subscription = this.movieService.moviesChanged.subscribe({
         next: (movies)=>{
           this.movieList=movies
@@ -47,7 +47,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
   }
 
-  addToWatched(movieId: string){
+  addToWatched(movieId: number){
     this.watched.movieId= movieId;
     this.watchedlistService.addToWatchedList(this.watched).then(() => {
       console.log('Added to watched list successfully!');
@@ -55,12 +55,12 @@ export class MovieListComponent implements OnInit, OnDestroy {
     this.isAddedToWatched= true;
   }
 
-  addToWatch(movieId: string){
+  addToWatch(movieId: number){
     this.watch.movieId= movieId;
     this.watchlistService.addToWatchList(this.watch).then(() => {
       console.log('Added to watch list successfully!');
     });
     this.isAddedToWatch= true;
   }
-  
+
 }

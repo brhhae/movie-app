@@ -26,11 +26,11 @@
             <div class="moviect"
                  *ngFor="let movie of movieList; let i = index;">
 
-                <img [src]="movie.cardImg" alt="{{movie.title}}">
+                <img [src]="movie.cardImage" alt="{{movie.title}}">
                 <div class="controls">
-                    <a class="btn text" (click)="addToWatch(movie.idField)"><i class="bi bi-plus-lg"></i></a>
-                    <a class="btn text" (click)="addToWatched(movie.idField)"><i class="bi bi-check2"></i></a>
-                    <a class="btn text" routerLink="/details/{{movie.idField}}"><i class="bi bi-three-dots"></i></a>
+                    <a class="btn text" (click)="addToWatch(movie.id)"><i class="bi bi-plus-lg"></i></a>
+                    <a class="btn text" (click)="addToWatched(movie.id)"><i class="bi bi-check2"></i></a>
+                    <a class="btn text" routerLink="/details/{{movie.id}}"><i class="bi bi-three-dots"></i></a>
                 </div>
 
             </div>

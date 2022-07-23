@@ -26,7 +26,6 @@ export class MovieItemComponent implements OnInit {
     if (!movieId){
       //  doesnt exist
       //  go home
-      console.log(movieId)
       this.router.navigate(['home'])
     }
 
