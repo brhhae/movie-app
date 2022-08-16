@@ -21,7 +21,7 @@ export class WatchlistComponent implements OnInit {
     this.watchlistService.getAllWatchlists();
     this.watchlistService.watchlistsChanged.subscribe({
       next: (movies)=>{
-        this.watchlistMovie=movies
+        this.watchlist=movies
         console.log(movies);
         
       },
@@ -29,7 +29,6 @@ export class WatchlistComponent implements OnInit {
   }
 
   removeFromWatchlist(id: number){
-    this.watchlistService.removeFromWatchlist(id);
   }
 
 }

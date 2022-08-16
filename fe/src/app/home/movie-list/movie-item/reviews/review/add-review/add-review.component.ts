@@ -36,7 +36,7 @@ export class AddReviewComponent implements OnInit {
 
   newReview(): void {
     this.submitted = false;
-    // this.review = new Review();
+    this.review = new Review();
   }
 
   private getMovieId() {

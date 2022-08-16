@@ -4,45 +4,56 @@ import { map, Subject } from 'rxjs';
 import { Movie } from '../models/movie.model';
 import { Watchlist } from '../models/watchlist.model';
 import { collection, query, where, getDocs, deleteDoc } from "firebase/firestore";
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WatchlistsService {
 
-  private dbPath = '/watchlists';
-  watchlistRef!: AngularFirestoreCollection<Watchlist>;
+  private baseurl="http://localhost:8080/"
+ 
 
-  watchlistsChanged = new Subject<Movie[]>();
+  watchlistsChanged = new Subject<Watchlist[]>();
+  watchlistChanged = new Subject<Movie[]>();
 
   idToDelete!: string;
 
-  constructor(private db: AngularFirestore) {
-    this.watchlistRef = db.collection(this.dbPath);
+  constructor(private http:HttpClient) {
+    
+  }
+
+  addToWatchList(watchlist: Watchlist) {
+    
+    this.watchlistsChanged.next([])
+    this.http.post<Watchlist[]>(this.baseurl+"to_watch", watchlist).subscribe(
+      (watchlists)=>{
+        this.watchlistsChanged.next(watchlists)
+      }
+    )
+  }
+  update(id: string, data: any) {
+  }
+  delete(id: string) {
+
   }
 
   getAllWatchlists() {
+    this.http.get<Watchlist[]>(this.baseurl+"to_watch").subscribe(
+      (watchlists)=>{
+        this.watchlistsChanged.next(watchlists);
+      }
+    )
+ }
 
 
-  }
-
-
-  getWatchlistMovie(){
-  }
 
   moviesWithDetails:Movie[]=[]
-  getAllForWatchlist(id: number){
-
-
-
+  getAllForWatchlist(id: string){
+    
+    
   }
 
-  addToWatchList(watchlist: Watchlist): any {
-    return this.watchlistRef.add({ ...watchlist });
-  }
-  removeFromWatchlist(id: number){
-
-  }
 
 
 }

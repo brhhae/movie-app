@@ -57,9 +57,7 @@ export class MovieListComponent implements OnInit, OnDestroy {
 
   addToWatch(movieId: number){
     this.watch.movieId= movieId;
-    this.watchlistService.addToWatchList(this.watch).then(() => {
-      console.log('Added to watch list successfully!');
-    });
+    this.watchlistService.addToWatchList(this.watch)
     this.isAddedToWatch= true;
   }
 

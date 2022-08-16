@@ -15,6 +15,7 @@ export class ReviewComponent implements OnInit {
   currentIndex= 0;
   title = '';
 
+
   constructor(private reviewsService: ReviewsService, private route: ActivatedRoute) { }
 
 
@@ -23,7 +24,7 @@ export class ReviewComponent implements OnInit {
   }
 
   retrieveReviews(): void {
-    this.reviewsService.getAllReviews();
+    this.reviewsService.getAllForMovie(this.getMovieId());
     this.reviewsService.reviewsChanged.subscribe(
       (reviews)=>{
         this.reviews=reviews;
@@ -43,6 +44,6 @@ export class ReviewComponent implements OnInit {
   }
 
   private getMovieId() {
-    return this.route.snapshot.paramMap.get("id");
+    return this.route.snapshot.paramMap.get("id") as string;
   }
 }
